@@ -1,23 +1,15 @@
 import './App.css';
-import Construction from './components/Construction';
-import Header from './components/Header';
-import Background from './components/Background';
+
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Main from './components/Main';
+
+const router = createBrowserRouter([
+  { path: "/", element: <Main></Main>}
+])
+
 function App() {
-  return (
-    <div className="App">
-      
-      <Header> </Header>
-      <div className="info-container">
-        <Background> </Background>
-        <div className="info">
-          <h1>"DOTA 2 IMPROVED WEBPAGE PROJECT."</h1>
-          <h2>- Yan Chervonyi</h2>
-        </div>
-        <div className="bla"></div>
-      </div>
-      <Construction></Construction>
-    </div>
-  );
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
