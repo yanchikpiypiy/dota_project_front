@@ -150,6 +150,9 @@ a:hover{
     filter: brightness(0.5) saturate(0);    
 }
 
+.active{
+    filter: none
+}
 .text{
     color: #808fa6;
     font-size: 17px;

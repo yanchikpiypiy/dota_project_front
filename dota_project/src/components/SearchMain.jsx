@@ -2,7 +2,15 @@ import classes from "../public/css/Search.module.css";
 import Header from "./Header";
 import heroes from "../public/final_hero.json"
 import HeroCard from "./HeroCard";
+import React, { useState } from 'react';
 export default function SearchMain() {
+  const [Clicked, setCliked] = useState("")
+  const [filteredHeroes, setFilteredHeroes] = useState(heroes);
+  function handleClick(attribute){
+      setCliked(attribute)
+      const filtered = heroes.filter(hero => hero.primary_attribute === attribute);
+      setFilteredHeroes(filtered);
+  }
   let num = 0;
   return (
     <div className={classes["content-container"]}>
@@ -23,20 +31,24 @@ export default function SearchMain() {
         <div className={classes.attributes}>
           <div className={classes.text}>Attribute</div>
           <div
-            className={classes.attribute}
+            className={`${classes.attribute} ${Clicked === "str" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-str-active.png)" }}
+            onClick={() => handleClick("str")}
           ></div>
           <div
-            className={classes.attribute}
+            className={`${classes.attribute} ${Clicked === "agi" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-agi-active.png)" }}
+            onClick={() => handleClick("agi")}
           ></div>
           <div
-            className={classes.attribute}
+            className={`${classes.attribute} ${Clicked === "int" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-int-active.png)" }}
+            onClick={() => handleClick("int")}
           ></div>
           <div
-            className={classes.attribute}
+            className={`${classes.attribute} ${Clicked === "all" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-uni-active.png)" }}
+            onClick={() => handleClick("all")}
           ></div>
         </div>
         <div className={classes.complexity}>
@@ -66,7 +78,7 @@ export default function SearchMain() {
       </div>
 
       <div className={classes["heroes-list"]}>
-        {heroes.map((hero,index) => {
+        {filteredHeroes.map((hero,index) => {
           let name = hero.name.replace(/ /g, "_").toLocaleLowerCase()
           name = name.replace(/'/g, "")
           let attribute = hero.primary_attribute
