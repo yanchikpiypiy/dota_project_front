@@ -1,20 +1,20 @@
-import '../App.css';
+import classes from "../public/css/Search.module.css";
 
 export default function Header(){
     return(
-        <div className="header-container">
-            <div className="dota-icon">
-                <a href="/bla" className="icon"></a>
+        <div className={classes["header-container"]}>
+            <div className={classes["dota-icon"]}>
+                <a href="/" className={classes.icon}></a>
             </div>
-            <div className="group link">
-                <a href="#">Game</a>
+            <div className={`${classes.group} ${classes.link}`}>
+                <a href="">Game</a>
                 <a href="/heroes">Heroes</a>
-                <a href="#">News</a>
-                <a href="#">Esports</a>
+                <a href="">News</a>
+                <a href="">Esports</a>
             </div>
-            <div className="link">
-                <a href="#">Login</a>
+            <div className={classes.link}>
+                <a href=""> Login </a>
             </div>
-        </div>
+      </div>
     )
 }

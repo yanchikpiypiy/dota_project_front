@@ -1,21 +1,12 @@
 import classes from "../public/css/Search.module.css";
+import Header from "./Header";
+import heroes from "../public/final_hero.json"
+import HeroCard from "./HeroCard";
 export default function SearchMain() {
+  let num = 0;
   return (
     <div className={classes["content-container"]}>
-      <div className={classes["header-container"]}>
-        <div className={classes["dota-icon"]}>
-          <a href="/" className={classes.icon}></a>
-        </div>
-        <div className={`${classes.group} ${classes.link}`}>
-          <a href="">Game</a>
-          <a href="">Heroes</a>
-          <a href="">News</a>
-          <a href="">Esports</a>
-        </div>
-        <div className={classes.link}>
-          <a href=""> Login </a>
-        </div>
-      </div>
+      <Header></Header>
 
       <div className={classes.description}>
         <div className={classes.header}>
@@ -75,78 +66,30 @@ export default function SearchMain() {
       </div>
 
       <div className={classes["heroes-list"]}>
-        <a
-          href=""
-          className={classes["hero-box"]}
-          style={{
-            backgroundImage: "url(/assets/proper_images/abaddon.png)",
-            left: "calc(0% + 0px)",
-            top: "calc(0px)",
-          }}
-        >
-          <div className={classes["hero-popup"]}>
-            <img
-              src="/assets/icons/hero_universal.png"
-              alt=""
-              className={classes["hero-icon"]}
-            ></img>
-            <div className={classes["hero-text"]}>abaddon</div>
-          </div>
-        </a>
-        <a
-          href=""
-          className={classes["hero-box"]}
-          style={{
-            backgroundImage: "url(/assets/proper_images/alchemist.png)",
-            left: "calc(25% - 56.25px)",
-            top: "calc(0px)",
-          }}
-        >
-          <div className={classes["hero-popup"]}>
-            <img
-              src="assets/icons/hero_agility.png"
-              alt=""
-              className={classes["hero-icon"]}
-            ></img>
-            <div className={classes["hero-text"]}>alchemist</div>
-          </div>
-        </a>
-        <a
-          href=""
-          className={classes["hero-box"]}
-          style={{
-            backgroundImage: "url(/assets/proper_images/antimage.png)",
-            left: "calc(50% - 112.50px)",
-            top: "calc(0px)",
-          }}
-        >
-          <div className={classes["hero-popup"]}>
-            <img
-              src="assets/icons/hero_agility.png"
-              alt=""
-              className={classes["hero-icon"]}
-            ></img>
-            <div className={classes["hero-text"]}>antimage</div>
-          </div>
-        </a>
-        <a
-          href=""
-          className={classes["hero-box"]}
-          style={{
-            backgroundImage: "url(assets/proper_images/arc_warden.png)",
-            left: "calc(75% - 168.75px)",
-            top: "calc(0px)",
-          }}
-        >
-          <div className={classes["hero-popup"]}>
-            <img
-              src="assets/icons/hero_agility.png"
-              alt=""
-              className={classes["hero-icon"]}
-            ></img>
-            <div className={classes["hero-text"]}>arc_warden</div>
-          </div>
-        </a>
+        {heroes.map((hero,index) => {
+          let name = hero.name.replace(/ /g, "_").toLocaleLowerCase()
+          name = name.replace(/'/g, "")
+          let attribute = hero.primary_attribute
+          
+          if ((index) % 5 === 0 && index !== 0) {
+            num = (Math.floor(index / 5)) * 142;
+          }
+          if (attribute === "all"){
+            attribute = "universal"
+          }
+          return (
+            <HeroCard 
+              name={name} 
+              attribute={attribute} 
+              num={num} 
+              index={index}
+              key={index}
+              properName={hero.name}
+            >
+
+            </HeroCard>
+          )
+        })}
       </div>
     </div>
   );
