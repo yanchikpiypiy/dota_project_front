@@ -2,15 +2,41 @@ import classes from "../public/css/Search.module.css";
 import Header from "./Header";
 import heroes from "../public/final_hero.json"
 import HeroCard from "./HeroCard";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 export default function SearchMain() {
-  const [Clicked, setCliked] = useState("")
+  const [clicked, setCliked] = useState("")
   const [filteredHeroes, setFilteredHeroes] = useState(heroes);
+  const [search, setSearch] = useState("")
+  function handleChange(event){
+    const searchTerm = event.target.value;
+    setSearch(searchTerm);
+
+  }
   function handleClick(attribute){
       setCliked(attribute)
-      const filtered = heroes.filter(hero => hero.primary_attribute === attribute);
+      let filtered = heroes.filter(hero => hero.primary_attribute === attribute);
+      
+      filtered = filtered.filter(hero => 
+        hero.name.toLowerCase().includes(search.toLowerCase())
+      );
       setFilteredHeroes(filtered);
   }
+
+  useEffect(() => {
+    let filtered = heroes;
+
+    if (clicked) {
+      filtered = filtered.filter(hero => hero.primary_attribute === clicked);
+    }
+
+
+    if (search) {
+      filtered = filtered.filter(hero => hero.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    setFilteredHeroes(filtered);
+  }, [search, clicked]);
+  
   let num = 0;
   return (
     <div className={classes["content-container"]}>
@@ -31,22 +57,22 @@ export default function SearchMain() {
         <div className={classes.attributes}>
           <div className={classes.text}>Attribute</div>
           <div
-            className={`${classes.attribute} ${Clicked === "str" ? classes.active : ""}` }
+            className={`${classes.attribute} ${clicked === "str" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-str-active.png)" }}
             onClick={() => handleClick("str")}
           ></div>
           <div
-            className={`${classes.attribute} ${Clicked === "agi" ? classes.active : ""}` }
+            className={`${classes.attribute} ${clicked === "agi" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-agi-active.png)" }}
             onClick={() => handleClick("agi")}
           ></div>
           <div
-            className={`${classes.attribute} ${Clicked === "int" ? classes.active : ""}` }
+            className={`${classes.attribute} ${clicked === "int" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-int-active.png)" }}
             onClick={() => handleClick("int")}
           ></div>
           <div
-            className={`${classes.attribute} ${Clicked === "all" ? classes.active : ""}` }
+            className={`${classes.attribute} ${clicked === "all" ? classes.active : ""}` }
             style={{ backgroundImage: "url(/assets/icons/filter-uni-active.png)" }}
             onClick={() => handleClick("all")}
           ></div>
@@ -72,7 +98,7 @@ export default function SearchMain() {
             style={{ backgroundImage: "url(/assets/icons/search.svg)" }}
           ></div>
           <div>
-            <input type="text" name="" id=""></input>
+            <input type="text" name="" id="" value={search} onChange={handleChange}></input>
           </div>
         </div>
       </div>
