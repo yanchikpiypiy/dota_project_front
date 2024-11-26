@@ -51,7 +51,7 @@ a:hover{
 }
 
 .icon{
-    background-image: url("./assets/dota2_logo_horiz.png");
+    background-image: url("../public/assets/dota2_logo_horiz.png");
     opacity: .8;
     margin-right: 40px;
     width: 200px;
