@@ -13,7 +13,14 @@ export default function SearchMain() {
 
   }
   function handleClick(attribute){
-      setCliked(attribute)
+      setCliked((prev) => {
+        if (prev === attribute){
+          return ""
+        }
+        else{
+          return attribute
+        }
+      })
       let filtered = heroes.filter(hero => hero.primary_attribute === attribute);
       
       filtered = filtered.filter(hero => 
