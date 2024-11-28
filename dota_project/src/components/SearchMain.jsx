@@ -1,11 +1,12 @@
 import classes from "../public/css/Search.module.css";
 import Header from "./Header";
-import heroes from "../public/final_hero.json"
+// import heroes from "../public/final_hero.json"
 import HeroCard from "./HeroCard";
 import React, { useState, useEffect } from 'react';
 export default function SearchMain() {
   const [clicked, setCliked] = useState("")
-  const [filteredHeroes, setFilteredHeroes] = useState(heroes);
+  const [filteredHeroes, setFilteredHeroes] = useState([]);
+  const [heroes,setHeroes] = useState([])
   const [search, setSearch] = useState("")
   function handleChange(event){
     const searchTerm = event.target.value;
@@ -13,22 +14,25 @@ export default function SearchMain() {
 
   }
   function handleClick(attribute){
-      setCliked((prev) => {
-        if (prev === attribute){
-          return ""
-        }
-        else{
-          return attribute
-        }
-      })
-      let filtered = heroes.filter(hero => hero.primary_attribute === attribute);
-      
-      filtered = filtered.filter(hero => 
-        hero.name.toLowerCase().includes(search.toLowerCase())
-      );
-      setFilteredHeroes(filtered);
+    setCliked(prev => (prev === attribute ? "" : attribute));
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/heroes");
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+        const result = await response.json();
+        setFilteredHeroes(result);
+        setHeroes(result)
+      } catch (error) {
+        console.log(error.message)
+      }
+    };
 
+    fetchData();
+  }, []);
   useEffect(() => {
     let filtered = heroes;
 
@@ -42,8 +46,8 @@ export default function SearchMain() {
     }
 
     setFilteredHeroes(filtered);
-  }, [search, clicked]);
-  
+  }, [search, clicked,heroes]);
+
   let num = 0;
   return (
     <div className={classes["content-container"]}>
