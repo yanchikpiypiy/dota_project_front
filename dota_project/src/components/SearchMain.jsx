@@ -3,10 +3,11 @@ import Header from "./Header";
 // import heroes from "../public/final_hero.json"
 import HeroCard from "./HeroCard";
 import React, { useState, useEffect } from 'react';
+import { useLoaderData } from "react-router-dom";
 export default function SearchMain() {
+  const fetched_heroes = useLoaderData()
   const [clicked, setCliked] = useState("")
-  const [filteredHeroes, setFilteredHeroes] = useState([]);
-  const [heroes,setHeroes] = useState([])
+  const [filteredHeroes, setFilteredHeroes] = useState(fetched_heroes);
   const [search, setSearch] = useState("")
   function handleChange(event){
     const searchTerm = event.target.value;
@@ -17,24 +18,7 @@ export default function SearchMain() {
     setCliked(prev => (prev === attribute ? "" : attribute));
   }
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:8000/heroes");
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
-        const result = await response.json();
-        setFilteredHeroes(result);
-        setHeroes(result)
-      } catch (error) {
-        console.log(error.message)
-      }
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {
-    let filtered = heroes;
+    let filtered = fetched_heroes;
 
     if (clicked) {
       filtered = filtered.filter(hero => hero.primary_attribute === clicked);
@@ -46,7 +30,7 @@ export default function SearchMain() {
     }
 
     setFilteredHeroes(filtered);
-  }, [search, clicked,heroes]);
+  }, [search, clicked,fetched_heroes]);
 
   let num = 0;
   return (
@@ -142,4 +126,17 @@ export default function SearchMain() {
       </div>
     </div>
   );
+}
+export async function loader(){
+  try {
+    const response = await fetch("http://127.0.0.1:8000/heroes");
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+    const result = await response.json();
+    return result; // Return the data
+  } catch (error) {
+    console.error(error.message);
+    throw error; // Let React Router handle the error
+  }
 }

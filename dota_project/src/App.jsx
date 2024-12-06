@@ -2,11 +2,10 @@ import './App.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Main from './components/Main';
-import SearchMain from './components/SearchMain';
-
+import SearchMain, {loader} from './components/SearchMain';
 const router = createBrowserRouter([
   { path: "/", element: <Main></Main>},
-  { path: "/heroes", element: <SearchMain></SearchMain>}
+  { path: "/heroes",loader:loader, element: <SearchMain></SearchMain>}
 ])
 
 function App() {
