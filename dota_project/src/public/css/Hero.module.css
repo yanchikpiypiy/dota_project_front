@@ -1,0 +1,835 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+
+.container{
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.headerContainer{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    z-index: 9999;
+    background-color: transparent;
+    justify-content: space-between;   
+}
+
+.videoContainer{
+    width: 100%;
+    padding-top: 56.25%;
+    height: 0px;
+    position: relative;
+    box-shadow: 3px 3px 8px #000;
+}
+
+.abilityVideo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.link a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    opacity: .8;
+    color: #fff;
+    margin: 0 20px;
+    text-transform: uppercase;
+    
+}
+
+a:hover{
+    opacity: 1.2;
+}
+
+.group{
+    flex-grow: 1;
+    
+}
+
+.dotaIcon{
+    display: flex;
+}
+
+.icon{
+    background-image: url("/assets/dota2_logo_horiz.png");
+    opacity: .8;
+    margin-right: 40px;
+    width: 200px;
+    min-width: 200px;
+    height: 50px;
+    min-height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: ease 0.2s;
+}
+
+
+.heroContainer{
+    width: 100%;
+    min-height: 780px;
+    padding: 40px 100px 0px 140px;
+    background-position-x: -20vw;
+    background-color: #000;
+    background-image: url("../assets/greyfade.jpg");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+    
+}
+.heroDescription{
+    margin-top: 100px;
+    margin-left: 30px;
+    width: 40%;
+    height: calc(90% - 100px);
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+
+}
+.attribute{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.atr{
+    width: 32px;
+    height: 32px;
+}
+
+
+.type{
+    margin-left: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 21px;
+}
+
+.name{
+    margin-top: 12px;
+    font-family: Reaver, serif;
+    line-height: 60px;
+    font-size: 68px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+
+.short{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a5e0f3;
+    margin-top: 5px;
+}
+
+.long{
+    width: 100%;
+    margin-top: 14px;
+    color: #eee;
+    font-size: 22px;
+    letter-spacing: 0px;
+}
+
+.Bold{
+    font-weight: bold;
+}
+
+.attackType{
+    margin-top: 30px;
+    color: #959595;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+.attackIcon{
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.typeIcon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.attackName{
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.complexityText{
+    margin-top: 30px;
+    color: #959595;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+
+.complexityIcons{
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-left: 4px;
+}
+
+
+.squares{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #fff;
+    transform: rotateZ(45deg);
+}
+
+.white{
+    background-color: #fff;
+}
+
+
+.heroVideo{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    top: 0;
+    right: -5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+
+.bigVideo{
+    width: 100%;
+    min-height: 100%;
+    max-width: 1500px;
+}
+
+.alchemist{
+    align-items: flex-start;
+    top: -3%;;
+}
+
+.dash{
+    width: 150%;
+    height: 650px;
+    background-color: #00000060;
+    position: absolute;
+    transform: skewY(-45deg) translateX(-50vw);
+    overflow: hidden;
+}
+
+
+.abilitiesContainer{
+    position: absolute;
+    right: 139px;
+    bottom: 40px;
+    max-width: 45%;
+    width: fit-content;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.abilityLabel{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.abilities{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.abilityIcons{
+    width: 72px;
+    height: 72px;
+    overflow: visible;
+    position: relative;
+    display: flex;
+}
+
+
+
+.blackish{
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+}
+
+.blacktransition{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.moveAway{
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+.blackBackground{   
+    width: 100%;
+    height: fit-content;
+    min-height: 221px;
+    background: linear-gradient(80deg, #252728 0%, #101415 100%);
+    border-top: 2px solid #282828;
+    border-bottom: 2px solid #2c2e2e;
+    box-shadow: 0px 0px 8px #000;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    
+}
+
+
+.detailsContainer{
+    width: 100%;
+    max-width: 1600px;
+    padding: 20px 0px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.leftPart{
+    min-width: 300px;
+    width: 30%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.attributes{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.heroImage{
+    width: 150px;
+    height: 135px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.smallImage{
+    width: 150px;
+    height: 84px;
+}
+
+
+
+.healthBar{
+    width: 150px;
+    height: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(to right, #286323, #7AF03C);
+    position: relative;
+}
+
+
+.barText{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    text-shadow: 1px 1px 2px #000;
+    font-family: Radiance, sans-serif;
+    font-weight: 700;
+}
+
+.healthGain{
+    color: #286323;
+    flex-grow: 1;
+    text-align: right;
+    font-size: 11px;
+    padding-right: 16px;
+    font-weight: bold;
+}
+
+
+.manaBar{
+    width: 150px;
+    height: 22px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(to right, #1056DB, #73F5FE);
+    position: relative;
+}
+
+.manaGain{
+    color: #1056db;
+    flex-grow: 1;
+    text-align: right;
+    font-size: 11px;
+    padding-right: 16px;
+    font-weight: bold;
+}
+
+.attributeDetails{
+    width: 100px;
+    height: 120px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.attributeDetail{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 4px 0px;
+}
+
+
+.smallAttribute{
+    width: 30px;
+    height: 30px;
+}
+
+.attributeStat{
+    color: #fff;
+    font-family: Reaver, serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #000;
+    margin-left: 12px;
+}
+
+
+.attributeGain{
+    color: #999;
+    font-size: 15px;
+    text-shadow: 1px 1px 2px #000;
+    margin-left: 8px;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.bottomText{
+    color: #969696;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px #000;
+    margin-top: 12px;
+}
+
+
+.middlePart{
+    min-width: 250px;
+    width: 30%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roles{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.role{
+    width: 30%;
+    height: 32px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+}
+
+.roleName{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #fff;
+}
+
+
+.roleBar{
+    width: 100%;
+    height: 6px;
+    max-height: 6px;
+    flex-grow: 1;
+    margin-top: 4px;
+    position: relative;
+}
+
+
+.blackBar{
+    width: 100%;
+    height: 100%;
+    background-color: #4c4c4c;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.whitePercantage{
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #427ed1, 0px 0px 10px #427ed1;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.separator{
+    content: "";
+    width: 1px;
+    height: 80%;
+    background-color: #4f4f4f;
+}
+.rightPart{
+    min-width: 400px;
+    width: 30%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.statColumn{
+    width: 30%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.statImage{
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+.topText{
+    margin-left: 8px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #969696;
+    margin-bottom: 4px;
+}
+
+
+.bottomContainer{
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../assets/grey_painterly.png");
+}
+
+.nightmare{
+    width: 100%;
+    min-height: 400px;
+    padding: 80px 0px;
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+.spells{
+    width: 100%;
+    max-width: 1500px;
+    min-height: 542px;
+    display: flex;
+    flex-direction: row;
+}
+
+.spellAssets{
+    width: 55%;
+    margin-right: 20px;
+}
+
+.videoBox{
+    width: 100%;
+    padding-top: 56.25%;
+    height: 0px;
+    position: relative;
+    box-shadow: 3px 3px 8px #000;
+}
+
+.spellBar{
+    width: 100%;
+    margin-top: -15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
+}
+
+.spell{
+    width: 80px;
+    height: 80px;
+    margin: 0px 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 10px #000;
+    position: relative;
+}
+
+.spellVideo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.notActive{
+    filter: saturate(0) brightness(0.6);
+}
+
+
+.spellDescription{
+    width: 45%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bigSpell{
+    width: 96px;
+    height: 96px;
+    margin: 10px 15px 10px 10px;
+    box-shadow: 0px 0px 8px #000;
+}
+.topHalf{
+    width: 100%;
+    padding: 8px;
+    background-color: #121212;
+    display: flex;
+    flex-direction: row;
+}
+
+.textBlock{
+    flex-grow: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-left: 8px;
+    margin-right: 12px;
+    align-items: flex-start;
+}
+
+.spellName{
+    color: #fff;
+    font-family: Reaver, serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spellInfo{
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.bottomHalf{
+    width: 100%;
+    background-color: #000;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 15px 30px;
+}
+
+.spellGeneral{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.spellSpecifics{
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+.generalCol{
+    width: 50%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.generalRow{
+    font-size: 14px;
+    color: #737373;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.rowValue{
+    margin-left: 4px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0px;
+    text-transform: none;
+}
+
+.red{
+    color:red
+}
+
+.spellDetails{
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.spellDetail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.coolDownIcon{
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.coolDown{
+    margin-left: 8px;
+    color: #fff;
+}
+
+.manaIcon{
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background: linear-gradient(#00A4DB, #007196);
+}
+
+.manaText{
+    margin-left: 8px;
+    color: #fff;
+}
