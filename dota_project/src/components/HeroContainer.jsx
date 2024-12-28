@@ -1,69 +1,73 @@
 import classes from "../public/css/Hero.module.css"
+import { useContext } from "react";
+import { HeroDotaContext } from "../contexts/HeroShortDataContext";
 export default function HeroContainer(){
+    const {name, main_attr, short_desc, long_desc, abilities} = useContext(HeroDotaContext)
+    console.log(abilities)
     return (
         <div className={classes["heroContainer"]}>
             <div className={classes["dash"]}>
                 
             </div>
-            <div className="heroVideo alchemist">
-                <video className="bigVideo" autoplay loop muted>
-                    <source src="./assets/hero_giffs/Alchemist.webm"> </source>
+            <div className={`${classes["heroVideo"]} ${classes["alchemist"]}`}>
+                <video className={classes["bigVideo"]} autoPlay loop muted>
+                    <source src={`/assets/hero_giffs/${name}.webm`}></source>
                 </video>
 
             </div>
-            <div className="blackish moveAway">
+            <div className={`${classes["blackish"]} ${classes["moveAway"]}`}>
                 <div className="blacktransition" style={{background: "linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.733) 100%, rgb(0, 0, 0) 100%)"}}></div>
             </div>
 
             <div className={classes["heroDescription"]}>
                 <div className={classes["attribute"]}>
-                    <img src="/assets/icons/hero_strength.png" alt="" className={classes["atr"]}> </img>
-                    <div className={classes["type"]}>strength</div>
+                    <img src="/assets/icons/hero_strength.png" alt="" className={classes["atr"]}></img>
+                    <div className={classes["type"]}>{main_attr == "str" ? "Strength" : main_attr == "agi" ? "Agility" : main_attr=="all" ? "Universal" : "Inteligence"}</div>
                 </div>
                 <div className={classes["name"]}>
-                    Alchemist
+                    {name}
                 </div>
-                <div className={classes["short"]}>Earns extra gold from unit kills and bounty runes</div>
-                <div className={classes["long"]}>Synthesizing <span className={classes["Bold"]}>extra resources</span> from each and every kill, Alchemist has no trouble gathering the tools needed to destroy his foes. Ambushing enemies with <span className={classes["Bold"]}>corrosive acid</span> and a host of <span className={classes["Bold"]}>unstable chemicals</span>, he battles to ensure his greedy escapades can remain uninterrupted.</div>
+                <div className={classes["short"]}>{short_desc}</div>
+                <div className={classes["long"]}>{long_desc}</div>
 
                 <div>
                     <div className={classes["attackType"]}>Attack Type</div>
                     <div className={classes["typeIcon"]}>
-                        <img src="/assets/icons/melee.svg" alt="" className="attack-icon"> </img>
-                        <div className="attack-name">Melee</div>
+                        <img src="/assets/icons/melee.svg" alt="" className={classes["attackIcon"]}></img>
+                        <div className={classes["attackName"]}>Melee</div>
                     </div>
                 </div>
                 <div>
                     <div className={classes["complexityText"]}>Complexity</div>
                     <div className={classes["complexityIcons"]}>
-                        <div className="squares white"></div>
-                        <div className="squares"></div>
-                        <div className="squares"></div>
+                        <div className={`${classes["squares"]} ${classes["white"]}`}></div>
+                        <div className={classes["squares"]}></div>
+                        <div className={classes["squares"]}></div>
                     </div>
                 </div>
             </div>
 
            
-            <div class="abilitiesContainer">
-                <div class="abilityLabel">Abilities</div>
-                <div class="abilities">
-                    <div class="abilityIcons">
-                        <img src="/assets/icons/talents.svg" alt=""> </img>
+            <div className={classes["abilitiesContainer"]}>
+                <div className={classes["abilityLabel"]}>Abilities</div>
+                <div className={classes["abilities"]}>
+                    <div className={classes["abilityIcons"]}>
+                        <img src="/assets/icons/talents.svg" alt=""></img>
                     </div>
-                    <div class="abilityIcons">
-                        <img src="/assets/icons/innate_icon.png" alt=""> </img>
+                    <div className={classes["abilityIcons"]}>
+                        <img src="/assets/icons/innate_icon.png" alt=""></img>
                     </div>
-                    <div class="abilityIcons">
-                        <img src="/assets/abilities_images/Alchemist_Acid_Spray.png" alt=""> </img>
+                    <div className={classes["abilityIcons"]}>
+                        <img src={`/assets/abilities_images/${name}_${abilities[0].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
-                    <div class="abilityIcons">
-                        <img src="/assets/abilities_images/Alchemist_Berserk_Potion.png" alt=""> </img>
+                    <div className={classes["abilityIcons"]}>
+                        <img src={`/assets/abilities_images/${name}_${abilities[1].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
-                    <div class="abilityIcons">
-                        <img src="/assets/abilities_images/Alchemist_Chemical_Rage.png" alt=""> </img>
+                    <div className={classes["abilityIcons"]}>
+                        <img src={`/assets/abilities_images/${name}_${abilities[2].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
-                    <div class="abilityIcons">
-                        <img src="/assets/abilities_images/Alchemist_Corrosive_Weaponry.png" alt=""> </img>
+                    <div className={classes["abilityIcons"]}>
+                        <img src={`/assets/abilities_images/${name}_${abilities[3].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
                 </div>
             </div>
