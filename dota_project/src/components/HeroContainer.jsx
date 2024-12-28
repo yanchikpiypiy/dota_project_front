@@ -2,7 +2,9 @@ import classes from "../public/css/Hero.module.css"
 import { useContext } from "react";
 import { HeroDotaContext } from "../contexts/HeroShortDataContext";
 export default function HeroContainer(){
-    const {name, main_attr, short_desc, long_desc, abilities} = useContext(HeroDotaContext)
+    const {data,abilities} = useContext(HeroDotaContext)
+    console.log(data)
+    const attr = data.primary_attribute == "str" ? "strength" : data.primary_attribute == "agi" ? "agility" : data.primary_attribute == "all" ? "universal" : "intelligence"
     console.log(abilities)
     return (
         <div className={classes["heroContainer"]}>
@@ -11,7 +13,7 @@ export default function HeroContainer(){
             </div>
             <div className={`${classes["heroVideo"]} ${classes["alchemist"]}`}>
                 <video className={classes["bigVideo"]} autoPlay loop muted>
-                    <source src={`/assets/hero_giffs/${name}.webm`}></source>
+                    <source src={`/assets/hero_giffs/${data.name}.webm`}></source>
                 </video>
 
             </div>
@@ -21,20 +23,20 @@ export default function HeroContainer(){
 
             <div className={classes["heroDescription"]}>
                 <div className={classes["attribute"]}>
-                    <img src="/assets/icons/hero_strength.png" alt="" className={classes["atr"]}></img>
-                    <div className={classes["type"]}>{main_attr == "str" ? "Strength" : main_attr == "agi" ? "Agility" : main_attr=="all" ? "Universal" : "Inteligence"}</div>
+                    <img src={`/assets/icons/hero_${attr}.png`} alt="" className={classes["atr"]}></img>
+                    <div className={classes["type"]}>{attr}</div>
                 </div>
                 <div className={classes["name"]}>
-                    {name}
+                    {data.name}
                 </div>
-                <div className={classes["short"]}>{short_desc}</div>
-                <div className={classes["long"]}>{long_desc}</div>
+                <div className={classes["short"]}>{data.short_desc}</div>
+                <div className={classes["long"]}>{data.long_desc}</div>
 
                 <div>
                     <div className={classes["attackType"]}>Attack Type</div>
                     <div className={classes["typeIcon"]}>
                         <img src="/assets/icons/melee.svg" alt="" className={classes["attackIcon"]}></img>
-                        <div className={classes["attackName"]}>Melee</div>
+                        <div className={classes["attackName"]}>{data.attack_type}</div>
                     </div>
                 </div>
                 <div>
@@ -58,16 +60,16 @@ export default function HeroContainer(){
                         <img src="/assets/icons/innate_icon.png" alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${name}_${abilities[0].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name}_${abilities[0].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${name}_${abilities[1].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name}_${abilities[1].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${name}_${abilities[2].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name}_${abilities[2].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${name}_${abilities[3].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name}_${abilities[3].name.split(" ").join("_")}.png`} alt=""></img>
                     </div>
                 </div>
             </div>
