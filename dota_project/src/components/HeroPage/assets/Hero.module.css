@@ -75,7 +75,7 @@ a:hover{
 }
 
 .icon{
-    background-image: url("../../../public/assets/dota2_logo_horiz.png");
+    background-image: url("../../../../public/assets/dota2_logo_horiz.png");
     opacity: .8;
     margin-right: 40px;
     width: 200px;
@@ -95,7 +95,7 @@ a:hover{
     padding: 40px 100px 0px 140px;
     background-position-x: -20vw;
     background-color: #000;
-    background-image: url("../../../public/assets/greyfade.jpg");
+    background-image: url("../../../../public/assets/greyfade.jpg");
     background-size: 100% auto;
     background-position: center top;
     background-repeat: no-repeat;
@@ -617,7 +617,7 @@ a:hover{
     align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../../../public/assets/grey_painterly.png");
+    background-image: url("../../../../public/assets/grey_painterly.png");
 }
 
 .nightmare{

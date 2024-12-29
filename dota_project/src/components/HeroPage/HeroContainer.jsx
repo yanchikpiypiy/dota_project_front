@@ -1,11 +1,11 @@
-import classes from "../public/css/Hero.module.css"
+import classes from "./assets/Hero.module.css"
 import { useContext } from "react";
-import { HeroDotaContext } from "../contexts/HeroShortDataContext";
+import { HeroDotaContext } from "./contexts/HeroShortDataContext";
 export default function HeroContainer(){
     const {data,abilities} = useContext(HeroDotaContext)
-    console.log(data)
-    const attr = data.primary_attribute == "str" ? "strength" : data.primary_attribute == "agi" ? "agility" : data.primary_attribute == "all" ? "universal" : "intelligence"
-    console.log(abilities)
+    const attr = data.primary_attribute === "str" ? "strength" : data.primary_attribute === "agi" ? "agility" : data.primary_attribute === "all" ? "universal" : "intelligence"
+    const totalShapes = 3
+    const boxes = Array.from({ length: totalShapes }, (_, index) => index < data.complexity);
     return (
         <div className={classes["heroContainer"]}>
             <div className={classes["dash"]}>
@@ -42,9 +42,11 @@ export default function HeroContainer(){
                 <div>
                     <div className={classes["complexityText"]}>Complexity</div>
                     <div className={classes["complexityIcons"]}>
-                        <div className={`${classes["squares"]} ${classes["white"]}`}></div>
-                        <div className={classes["squares"]}></div>
-                        <div className={classes["squares"]}></div>
+                        {boxes.map((isWhite, index) => (
+                            <div key={index} className={`${classes.squares} ${isWhite ? classes.white : ''}`}> 
+
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

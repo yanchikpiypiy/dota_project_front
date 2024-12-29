@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import HeroDota from "../public/improved_dota_hero_stats.json"
-import abilitiesData from "../public/dota2_official_abilities.json"
+import HeroDota from "./improved_dota_hero_stats.json"
+import abilitiesData from "./dota2_official_abilities.json"
 import { useParams } from 'react-router-dom';
 export const HeroDotaContext = createContext({
     data: {},

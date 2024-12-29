@@ -1,4 +1,4 @@
-import classes from "../public/css/Hero.module.css"
+import classes from "./assets/Hero.module.css"
 export default function HeroAbilities(){
     return (
         <div className={classes["bottomContainer"]}>
@@ -70,7 +70,7 @@ export default function HeroAbilities(){
 
                             <div className={classes["spellDetails"]}>
                                 <div className={classes["spellDetail"]}>
-                                    <div className={classes["coolDownIcon"]} style={{backgroundImage: "url('./assets/icons/cooldown.png')"}}></div>
+                                    <div className={classes["coolDownIcon"]} style={{backgroundImage: "url('/assets/icons/cooldown.png')"}}></div>
                                     <div className={classes["coolDown"]}>22 / 21 / 20 / 19</div>
                                 </div>
                                 <div className={classes["spellDetail"]}>

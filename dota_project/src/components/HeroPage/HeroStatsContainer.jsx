@@ -1,42 +1,45 @@
-import classes from "../public/css/Hero.module.css"
+import classes from "./assets/Hero.module.css"
+import { useContext } from "react";
+import { HeroDotaContext } from "./contexts/HeroShortDataContext";
 export default function HeroStatsContainer(){
+    const {data} = useContext(HeroDotaContext)
     return (
         <div className={classes["blackBackground"]}>
             <div className={classes["detailsContainer"]}>
                 <div className={classes["leftPart"]}>
                     <div className={classes["attributes"]}>
                         <div className={classes["heroImage"]}>
-                            <img src="/assets/proper_images/alchemist.png" className={classes["smallImage"]} alt=""></img>
+                            <img src={`/assets/proper_images/${data.name}.png`} className={classes["smallImage"]} alt=""></img>
                             <div className={classes["healthBar"]}>
-                                <div className={classes["barText"]}>656</div>
+                                <div className={classes["barText"]}>{data.baseHealth}</div>
                                 <div className={classes["healthGain"]}>
-                                    +2.5
+                                    {`+${data.healthGain}`}
                                 </div>
                             </div>
                             <div className={classes["manaBar"]}>
                                 <div className={classes["barText"]}>
-                                    375
+                                    {data.baseMana}
                                 </div>
                                 <div className={classes["manaGain"]}>
-                                    +1.3
+                                {`+${data.manaGain}`}
                                 </div>
                             </div>
                         </div>
                         <div className={classes["attributeDetails"]}>
                             <div className={classes["attributeDetail"]}>
                                 <img src="/assets/icons/hero_strength.png" className={classes["smallAttribute"]} alt=""></img>
-                                <div className={classes["attributeStat"]}>23</div>
-                                <div className={classes["attributeGain"]}>+2.7</div>
+                                <div className={classes["attributeStat"]}>{data.base_str}</div>
+                                <div className={classes["attributeGain"]}>{`+${data.str_gain}`}</div>
                             </div>
                             <div className={classes["attributeDetail"]}>
                                 <img src="/assets/icons/hero_agility.png" className={classes["smallAttribute"]} alt=""></img>
-                                <div className={classes["attributeStat"]}>22</div>
-                                <div className={classes["attributeGain"]}>+1.5</div>
+                                <div className={classes["attributeStat"]}>{data.base_agi}</div>
+                                <div className={classes["attributeGain"]}>{`+${data.agi_gain}`}</div>
                             </div>
                             <div className={classes["attributeDetail"]}>
-                                <img src="/assets/icons/hero_intelligence.png" className={classes["smallAattribute"]} alt=""></img>
-                                <div className={classes["attributeStat"]}>25</div>
-                                <div className={classes["attributeGain"]}>+1.8</div>
+                                <img src="/assets/icons/hero_intelligence.png" className={classes["smallAttribute"]} alt=""></img>
+                                <div className={classes["attributeStat"]}>{data.base_int}</div>
+                                <div className={classes["attributeGain"]}>{`+${data.int_gain}`}</div>
                             </div>
                         </div>
                     </div>
@@ -49,35 +52,35 @@ export default function HeroStatsContainer(){
                             <div className={classes["roleName"]}>Carry</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "66.6%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Carry*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Support</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "33.3%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Support*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Nuker</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "33.3%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Nuker*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Disabler</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "33.3%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Disabler*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Jungler</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "0%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Jungler*33.3}%`}}></div>
                             </div>
                         </div>
 
@@ -85,28 +88,28 @@ export default function HeroStatsContainer(){
                             <div className={classes["roleName"]}>Durable</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "66.6%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Durable*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Escape</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "0%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Escape*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Pusher</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "0%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Pusher*33.3}%`}}></div>
                             </div>
                         </div>
                         <div className={classes["role"]}>
                             <div className={classes["roleName"]}>Innitiator</div>
                             <div className={classes["roleBar"]}>
                                 <div className={classes["blackBar"]}></div>
-                                <div className={classes["whitePercantage"]} style={{width: "33.3%"}}></div>
+                                <div className={classes["whitePercantage"]} style={{width: `${data.roles.Innitiator*33.3}%`}}></div>
                             </div>
                         </div>
                     </div>
