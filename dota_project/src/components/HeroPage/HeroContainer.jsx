@@ -13,7 +13,7 @@ export default function HeroContainer(){
             </div>
             <div className={`${classes["heroVideo"]} ${classes["alchemist"]}`}>
                 <video className={classes["bigVideo"]} autoPlay loop muted>
-                    <source src={`/assets/hero_giffs/${data.name}.webm`}></source>
+                    <source src={`/assets/hero_giffs/${data.name.split(" ").join("_").replace(/'/g, "")}.webm`}></source>
                 </video>
 
             </div>
@@ -62,16 +62,16 @@ export default function HeroContainer(){
                         <img src="/assets/icons/innate_icon.png" alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name}_${abilities[0].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[0].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name}_${abilities[1].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[1].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name}_${abilities[2].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[2].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name}_${abilities[3].name.split(" ").join("_")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[3].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
                     </div>
                 </div>
             </div>

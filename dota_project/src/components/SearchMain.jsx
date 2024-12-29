@@ -110,6 +110,15 @@ export default function SearchMain() {
           if (attribute === "all"){
             attribute = "universal"
           }
+          else if (attribute === "str"){
+            attribute = "strength"
+          }
+          else if (attribute === "agi"){
+            attribute = "agility"
+          }
+          else{
+            attribute = "intelligence"
+          }
           return (
             <HeroCard 
               name={name} 

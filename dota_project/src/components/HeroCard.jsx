@@ -2,7 +2,7 @@ import classes from "../public/css/Search.module.css";
 export default function HeroCard({attribute, name,properName, num, index}){
   return (
     <a
-          href="#"
+          href={`/hero/${properName}`}
           className={classes["hero-box"]}
           style={{
             backgroundImage: `url(/assets/proper_images/${name}.png)`,
