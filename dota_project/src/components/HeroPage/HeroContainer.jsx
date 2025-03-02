@@ -62,16 +62,16 @@ export default function HeroContainer(){
                         <img src="/assets/icons/innate_icon.png" alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[0].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "%27")}_${abilities[0].name.split(" ").join("_").replace(/'/g, "%27")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[1].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "%27")}_${abilities[1].name.split(" ").join("_").replace(/'/g, "%27")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[2].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "%27")}_${abilities[2].name.split(" ").join("_").replace(/'/g, "%27")}.png`} alt=""></img>
                     </div>
                     <div className={classes["abilityIcons"]}>
-                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "")}_${abilities[3].name.split(" ").join("_").replace(/'/g, "")}.png`} alt=""></img>
+                        <img src={`/assets/abilities_images/${data.name.split(" ").join("_").replace(/'/g, "%27")}_${abilities[3].name.split(" ").join("_").replace(/'/g, "%27")}.png`} alt=""></img>
                     </div>
                 </div>
             </div>
