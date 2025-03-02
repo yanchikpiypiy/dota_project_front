@@ -1,4 +1,4 @@
-import classes from "../public/css/Search.module.css";
+import classes from "../../public/css/Search.module.css";
 export default function HeroCard({attribute, name,properName, num, index}){
   return (
     <a

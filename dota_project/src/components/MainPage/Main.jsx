@@ -1,6 +1,6 @@
-import '../App.css';
+import '../../App.css';
 import Background from './Background';
-import Header from './Header';
+import Header from '../Header';
 import Construction from './Construction';
 export default function Main(){
     return(

@@ -1,5 +1,5 @@
-import classes from "../public/css/Search.module.css";
-import Header from "./Header";
+import classes from "../../public/css/Search.module.css";
+import Header from "../Header";
 // import heroes from "../public/final_hero.json"
 import HeroCard from "./HeroCard";
 import React, { useState, useEffect } from 'react';

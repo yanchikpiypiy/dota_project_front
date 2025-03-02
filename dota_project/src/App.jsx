@@ -1,8 +1,8 @@
 import './App.css';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Main from './components/Main';
-import SearchMain, {loader} from './components/SearchMain';
+import Main from './components/MainPage/Main';
+import SearchMain, {loader} from './components/SearchPage/SearchMain';
 import HeroMainPage from './components/HeroPage/HeroMainPage';
 const router = createBrowserRouter([
   { path: "/", element: <Main></Main>},
