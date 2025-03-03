@@ -9,7 +9,15 @@ This is a front-end project that replicates the official Dota 2 website, designe
 ## Features
 - Replica of the official Dota 2 website layout and design
 - Displays hero details fetched from the API
-- Responsive and optimized for performance
+
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/413a499b-cc69-46dc-a196-d1cbd28f1f60)
+![image](https://github.com/user-attachments/assets/7eb34d81-ca04-49f2-acef-02bfe87208bf)
+![image](https://github.com/user-attachments/assets/58f04b7b-b5f2-4bec-baa4-ecfeae1539b3)
+![image](https://github.com/user-attachments/assets/14189500-91f4-42e1-a286-acd07808a9b8)
+
+
 
 ## Installation & Setup
 1. **Clone the repository:**
